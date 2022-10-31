@@ -23,7 +23,7 @@ extension UICollectionReusableView: ViewReusable { }
 
 extension UITableViewHeaderFooterView: ViewReusable { }
 
-public struct CellHandler<V> {
+public struct ViewReusableWrapper<V> {
     let view: V
     init(view: V) {
         self.view = view
@@ -31,18 +31,18 @@ public struct CellHandler<V> {
 }
 
 extension UITableView {
-    public var ch: CellHandler<UITableView> {
-        return CellHandler<UITableView>(view: self)
+    public var fl: ViewReusableWrapper<UITableView> {
+        return ViewReusableWrapper<UITableView>(view: self)
     }
 }
 
 extension UICollectionView {
-    public var ch: CellHandler<UICollectionView> {
-        return CellHandler<UICollectionView>(view: self)
+    public var fl: ViewReusableWrapper<UICollectionView> {
+        return ViewReusableWrapper<UICollectionView>(view: self)
     }
 }
 
-extension CellHandler where V: UITableView {
+extension ViewReusableWrapper where V: UITableView {
     public func register<T: UITableViewCell>(_ cellType: T.Type) {
         if Bundle.main.path(forResource: cellType.reuseIdentifier, ofType: "nib") != nil {
             view.register(UINib(nibName: cellType.reuseIdentifier, bundle: Bundle.main),
@@ -90,7 +90,7 @@ public enum UICollectionViewElementKind {
     }
 }
 
-extension CellHandler where V: UICollectionView {
+extension ViewReusableWrapper where V: UICollectionView {
     
     public func register<T: UICollectionViewCell>(_ cellType: T.Type) {
         if Bundle.main.path(forResource: cellType.reuseIdentifier, ofType: "nib") != nil {
