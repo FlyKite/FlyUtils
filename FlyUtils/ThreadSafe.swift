@@ -25,9 +25,9 @@ public class ThreadSafe<Value> {
         self.value = value
     }
     
-    public func transformValue(_ action: @escaping (Value) -> Value) {
+    public func transformValue(_ action: @escaping (inout Value) -> Void) {
         queue.async(flags: .barrier) {
-            self.value = action(self.value)
+            action(&self.value)
         }
     }
 }
