@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		428AEB502913755D00AFA84E /* Listenable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428AEB4F2913755D00AFA84E /* Listenable.swift */; };
+		428AEB522913792600AFA84E /* DefaultsProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428AEB512913792600AFA84E /* DefaultsProperty.swift */; };
+		428AEB5429137AB900AFA84E /* ThreadSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428AEB5329137AB900AFA84E /* ThreadSafe.swift */; };
 		42D88807290689B400FD8E76 /* FlyUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 42D88806290689B400FD8E76 /* FlyUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42D8880E290689E600FD8E76 /* ViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D8880D290689E600FD8E76 /* ViewReusable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		428AEB4F2913755D00AFA84E /* Listenable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listenable.swift; sourceTree = "<group>"; };
+		428AEB512913792600AFA84E /* DefaultsProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsProperty.swift; sourceTree = "<group>"; };
+		428AEB5329137AB900AFA84E /* ThreadSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafe.swift; sourceTree = "<group>"; };
 		42D88803290689B400FD8E76 /* FlyUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlyUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D88806290689B400FD8E76 /* FlyUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyUtils.h; sourceTree = "<group>"; };
 		42D8880D290689E600FD8E76 /* ViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReusable.swift; sourceTree = "<group>"; };
@@ -49,6 +55,9 @@
 			children = (
 				42D88806290689B400FD8E76 /* FlyUtils.h */,
 				42D8880D290689E600FD8E76 /* ViewReusable.swift */,
+				428AEB4F2913755D00AFA84E /* Listenable.swift */,
+				428AEB512913792600AFA84E /* DefaultsProperty.swift */,
+				428AEB5329137AB900AFA84E /* ThreadSafe.swift */,
 			);
 			path = FlyUtils;
 			sourceTree = "<group>";
@@ -133,6 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				428AEB522913792600AFA84E /* DefaultsProperty.swift in Sources */,
+				428AEB502913755D00AFA84E /* Listenable.swift in Sources */,
+				428AEB5429137AB900AFA84E /* ThreadSafe.swift in Sources */,
 				42D8880E290689E600FD8E76 /* ViewReusable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
