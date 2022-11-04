@@ -47,7 +47,7 @@ public protocol PresentationAnimator: AnyObject {
     func presentationDidEndTransition(type: TransitionType, wasCancelled: Bool)
 }
 
-extension PresentationAnimator {
+public extension PresentationAnimator {
     func presentationAnimationConfigs() -> AnimationConfig { .default }
     func presentationWillBeginTransition(type: TransitionType) { }
     func presentationDidEndTransition(type: TransitionType, wasCancelled: Bool) { }
