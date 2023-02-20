@@ -41,8 +41,8 @@ public class DefaultsProperty<ValueType: DefaultsSupportedType> {
     }
     
     public convenience init(keyProvider: @escaping () -> String,
-                     suiteName: String? = nil,
-                     defaultValue: ValueType) {
+                            suiteName: String? = nil,
+                            defaultValue: ValueType) {
         self.init(keyType: .dynamicKey(provider: keyProvider), suiteName: suiteName, defaultValue: defaultValue)
     }
     
@@ -84,6 +84,41 @@ public class DefaultsProperty<ValueType: DefaultsSupportedType> {
                 defaults.set(newValue, forKey: key)
             }
         }
+    }
+}
+
+public extension DefaultsCustomType where Self: Codable {
+    init?(storableValue: Any?) {
+        guard let data = storableValue as? Data else { return nil }
+        do {
+            self = try JSONDecoder().decode(Self.self, from: data)
+        } catch {
+            return nil
+        }
+    }
+    
+    func getStorableValue() -> DefaultsSupportedType {
+        return try? JSONEncoder().encode(self)
+    }
+}
+
+public extension DefaultsCustomType where Self: RawRepresentable, RawValue: Codable {
+    init?(storableValue: Any?) {
+        guard let data = storableValue as? Data else { return nil }
+        do {
+            let rawValue = try JSONDecoder().decode(RawValue.self, from: data)
+            if let value = Self.init(rawValue: rawValue) {
+                self = value
+            } else {
+                return nil
+            }
+        } catch {
+            return nil
+        }
+    }
+    
+    func getStorableValue() -> DefaultsSupportedType {
+        return try? JSONEncoder().encode(rawValue)
     }
 }
 
